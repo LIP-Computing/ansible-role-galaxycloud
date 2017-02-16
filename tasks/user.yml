@@ -36,11 +36,11 @@
 
 - name: Inject ssh public key - {{galaxy_user}}
   authorized_key: user={{galaxy_user}}
-                  key={{galaxy_instance_key_pub}}
+                  key="{{ lookup('file', lookup('env','HOME') + '/.ssh/authorized_keys') }}"
   become: true
   become_user: "{{galaxy_user}}"
   register: authorized_key_galaxy_user_result
-  failed_when: ('invalid key specified' in authorized_key_galaxy_user_result.stderr)
+  #failed_when: ('invalid key specified' in authorized_key_galaxy_user_result.stderr)
   ignore_errors: true
 
 - name: User rules for {{galaxy_user}}
@@ -51,7 +51,7 @@
 
 - name: Inject ssh public key - root
   authorized_key: user=root
-                  key={{galaxy_instance_key_pub}}
+                  key="{{ lookup('file', lookup('env','HOME') + '/.ssh/authorized_keys') }}"
   register: authorized_key_root_result
-  failed_when: ('invalid key specified' in authorized_key_root_result.stderr)
+  #failed_when: ('invalid key specified' in authorized_key_root_result.stderr)
   ignore_errors: true
