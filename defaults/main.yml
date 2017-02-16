@@ -22,7 +22,7 @@ galaxy_config_path: "{{galaxy_install_path}}/config"
 galaxy_config_file: "{{galaxy_config_path}}/galaxy.ini"
 
 # Galaxy version to install
-galaxy_version: "master"
+galaxy_version: "release_17.01"
 
 # Virtualenv directory
 galaxy_venv_path: "{{galaxy_install_path}}/.venv"
@@ -69,6 +69,15 @@ refdata_dir: "/refdata"
 
 # Tool dependency directory
 tool_deps_path: "{{ export_dir }}/tool_deps"
+
+enable_old_display_applications: false
+use_interactive: false
+require_login: true
+show_welcome_with_login: true
+allow_user_deletion: true
+new_user_dataset_access_role_default_private: true
+expose_user_name: true
+cleanup_job: "onsuccess"
 
 # Enable Conda
 use_conda: true

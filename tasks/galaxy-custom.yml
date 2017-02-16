@@ -19,13 +19,21 @@
     - { section: 'app:main', option: 'object_store_cache_path', value: "{{galaxy_db_dir}}/object_store_cache" }
     - { section: 'app:main', option: 'cluster_file_directory', value: "{{galaxy_db_dir}}/pbs" }
     - { section: 'app:main', option: 'ftp_upload_dir', value: "{{galaxy_db_dir}}/ftp" }
+    - { section: 'app:main', option: 'enable_old_display_applications', value: "{{enable_old_display_applications}}" }
+    - { section: 'app:main', option: 'use_interactive', value: "{{use_interactive}}" }
+    - { section: 'app:main', option: 'require_login', value: "{{require_login}}" }
+    - { section: 'app:main', option: 'show_welcome_with_login', value: "{{show_welcome_with_login}}" }
+    - { section: 'app:main', option: 'allow_user_deletion', value: "{{allow_user_deletion}}" }
+    - { section: 'app:main', option: 'new_user_dataset_access_role_default_private', value: "{{new_user_dataset_access_role_default_private}}" }
+    - { section: 'app:main', option: 'expose_user_name', value: "{{expose_user_name}}" }
+    - { section: 'app:main', option: 'cleanup_job', value: "{{cleanup_job}}" }
 
 - name: Enable Conda
   ini_file: dest={{galaxy_config_file}} section={{ item.section }} option={{ item.option }} value="{{ item.value }}"
   with_items:
-    #- { section: 'app:main', option: 'conda_prefix', value: "{{ conda_prefix }}" }
-    #- { section: 'app:main', option: 'job_working_directory', value: "{{ job_work_dir }}" } # change job working dir only when conda is enabled by default, to workaround current conda limitations.
-    #- { section: 'app:main', option: 'conda_ensure_channels', value: "{{ conda_channels }}" }
+    - { section: 'app:main', option: 'conda_prefix', value: "{{ conda_prefix }}" }
+    - { section: 'app:main', option: 'job_working_directory', value: "{{ job_work_dir }}" } # change job working dir only when conda is enabled by default, to workaround current conda limitations.
+    - { section: 'app:main', option: 'conda_ensure_channels', value: "{{ conda_channels }}" }
     - { section: 'app:main', option: 'conda_auto_install', value: "True" }
     - { section: 'app:main', option: 'conda_auto_init', value: "True" }
   when: use_conda
