@@ -12,8 +12,8 @@
   with_items:
     - openssl-devel
     - pcre-devel
-  #become_user: root
-  #become_method: sudo
+  become_user: root
+  become_method: sudo
   when: ansible_os_family == "RedHat"
 
 - name: Move NGINX rpm in /tmp
@@ -46,8 +46,8 @@
     - nginx-1.10.1-1.el7.centos.x86_64.rpm
     - nginx-mod-stream-1.10.1-1.el7.centos.x86_64.rpm
     - nginx-debuginfo-1.10.1-1.el7.centos.x86_64.rpm
-  #become_user: root
-  #become_method: sudo
+  become_user: root
+  become_method: sudo
   when: ansible_os_family == "RedHat"
 
 #---
@@ -74,8 +74,8 @@
 # Stop NGINX before configuration
 - name: Stop NGINX server
   service: name=nginx state=stopped enabled=no
-  #become_user: root
-  #become_method: sudo
+  become_user: root
+  become_method: sudo
   ignore_errors: yes
 
 #########################################################
@@ -88,8 +88,8 @@
 
 - name: Copy the NGINX configuration file
   template: src=nginx.conf.j2 dest=/etc/nginx/nginx.conf
-  #become_user: root
-  #become_method: sudo
+  become_user: root
+  become_method: sudo
 
 # NGINX configuration in galaxy.ini
 
