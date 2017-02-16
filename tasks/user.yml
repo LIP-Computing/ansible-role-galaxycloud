@@ -25,13 +25,13 @@
   user: name={{galaxy_user}}
         shell=/bin/bash
         groups=adm,wheel,systemd-journal
-        uid={{GALAXY_UID}}
+        uid={{galaxy_uid}}
   when: ansible_os_family == "RedHat"
 
 - name: Create user {{galaxy_user}} on the server | Ubuntu
   user: name={{galaxy_user}}
         shell=/bin/bash
-        uid={{GALAXY_UID}}
+        uid={{galaxy_uid}}
   when: ansible_os_family == "Debian"
 
 - name: Inject ssh public key - {{galaxy_user}}

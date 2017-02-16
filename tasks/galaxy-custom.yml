@@ -6,7 +6,7 @@
 - name: Galaxy configuration
   ini_file: dest={{galaxy_config_file}} section={{ item.section }} option={{ item.option }} value="{{ item.value }}"
   with_items:
-    - { section: 'app:main', option: 'admin_users', value: "{{GALAXY_ADMIN_EMAIL}}" }
+    - { section: 'app:main', option: 'admin_users', value: "{{galaxy_admin_email}}" }
     - { section: 'app:main', option: 'tool_dependency_dir', value: "{{ tool_deps_path }}" }
     - { section: 'app:main', option: 'brand', value: "{{galaxy_instance_description}}" }
     - { section: 'app:main', option: 'job_working_directory', value: "{{galaxy_db_dir}}/job_working_directory" }
@@ -40,7 +40,7 @@
   become_method: sudo
 
 - name: Setup Galaxy administrator
-  command: "{{galaxy_venv_path}}/bin/python /usr/local/bin/create_galaxy_user.py --user {{GALAXY_ADMIN_EMAIL}} --password {{GALAXY_ADMIN_PASSWORD}} --username {{GALAXY_ADMIN_USERNAME}} -c {{galaxy_config_file}} --key {{GALAXY_ADMIN_API_KEY}} chdir={{galaxy_install_path}}/"
+  command: "{{galaxy_venv_path}}/bin/python /usr/local/bin/create_galaxy_user.py --user {{galaxy_admin_email}} --password {{galaxy_admin_password}} --username {{galaxy_admin_username}} -c {{galaxy_config_file}} --key {{galaxy_admin_api_key}} chdir={{galaxy_install_path}}/"
   environment:
     PYTHONPATH: "{{galaxy_install_path}}/lib"
     VIRTUAL_ENV: "{{galaxy_venv_path}}"

@@ -36,18 +36,18 @@ in https://galaxy.ansible.com/LIP-Computing/ssl-certs/
 
 ```
 # Galaxy administrator username
-GALAXY_ADMIN_USERNAME: "{{galaxy_admin_username}}"
+galaxy_admin_username: "{{galaxy_admin_username}}"
 
 # Galaxy administrator password.
 # It is hard coded. To be changed by the administrator.
-GALAXY_ADMIN_PASSWORD: "galaxy_admin_password"
+galaxy_admin_password: "galaxy_admin_password"
 
 # Galaxy administrator API_KEY. https://wiki.galaxyproject.org/Admin/API
 # Please note that this key acts as an alternate means to access your account, and should be treated with the same care as your login password. To be changed by the administrator.
-GALAXY_ADMIN_API_KEY: "GALAXY_ADMIN_API_KEY"
+galaxy_admin_api_key: "GALAXY_ADMIN_API_KEY"
 
 # Galaxy administrator e-mail address
-GALAXY_ADMIN_EMAIL: "{{galaxy_admin_mail}}"
+galaxy_admin_email: "{{galaxy_admin_mail}}"
 ```
 
 ```

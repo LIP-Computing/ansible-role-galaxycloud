@@ -6,7 +6,7 @@ galaxy_instance_description: "INDIGO-CNR test"
 galaxy_user: galaxy
 
 # Galaxy user UID
-GALAXY_UID: "4001"
+galaxy_uid: "4001"
 
 # Path to install the Galaxy software
 galaxy_FS_path: /home/galaxy
@@ -22,7 +22,7 @@ galaxy_config_path: "{{galaxy_install_path}}/config"
 galaxy_config_file: "{{galaxy_config_path}}/galaxy.ini"
 
 # Galaxy version to install
-GALAXY_VERSION: "master"
+galaxy_version: "master"
 
 # Virtualenv directory
 galaxy_venv_path: "{{galaxy_install_path}}/.venv"
@@ -44,18 +44,18 @@ galaxy_lrms: local
 
 #################################
 # Galaxy administrator username
-GALAXY_ADMIN_USERNAME: "galaxy_admin_username"
+galaxy_admin_username: "galaxy_admin_username"
 
 # Galaxy administrator password.
 # It is hard coded. To be changed by the administrator.
-GALAXY_ADMIN_PASSWORD: "galaxy_admin_password"
+galaxy_admin_password: "galaxy_admin_password"
 
 # Galaxy administrator API_KEY. https://wiki.galaxyproject.org/Admin/API
 # Please note that this key acts as an alternate means to access your account, and should be treated with the same care as your login password. To be changed by the administrator.
-GALAXY_ADMIN_API_KEY: "GALAXY_ADMIN_API_KEY"
+galaxy_admin_api_key: "GALAXY_ADMIN_API_KEY"
 
 # Galaxy administrator e-mail address
-GALAXY_ADMIN_EMAIL: "admin@server.com"
+galaxy_admin_email: "admin@server.com"
 
 #################################
 # Galaxy configuration
